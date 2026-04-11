@@ -24,84 +24,84 @@ const ContactPage = () => {
     <div className="min-h-screen">
       <Navbar />
 
-      <section className="pt-32 section-padding">
+      <section className="pt-36 section-padding">
         <div className="container mx-auto">
-          <AnimatedSection className="text-center mb-16">
-            <span className="text-primary text-sm font-medium uppercase tracking-wider">Get In Touch</span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-3">
+          <AnimatedSection className="text-center mb-20">
+            <p className="text-primary text-xs font-medium uppercase tracking-[0.2em]">Get In Touch</p>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-4 tracking-tightest">
               Let's Start a <span className="gradient-text">Conversation</span>
             </h1>
-            <p className="text-muted-foreground max-w-xl mx-auto mt-4 text-lg">
+            <p className="text-muted-foreground max-w-lg mx-auto mt-5 text-base font-light">
               Have a project in mind? We'd love to hear about it.
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
             {/* Form */}
             <AnimatedSection className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="glass-card rounded-xl p-6 md:p-8 space-y-5">
+              <form onSubmit={handleSubmit} className="glass-card rounded-lg p-7 md:p-9 space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Name</label>
+                    <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Name</label>
                     <input
                       type="text"
                       required
                       maxLength={100}
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                      className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 font-light"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Email</label>
+                    <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Email</label>
                     <input
                       type="email"
                       required
                       maxLength={255}
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                      className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 font-light"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Phone</label>
+                  <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Phone</label>
                   <input
                     type="tel"
                     maxLength={20}
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                    className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 font-light"
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Message</label>
+                  <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Message</label>
                   <textarea
                     required
                     maxLength={1000}
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition resize-none"
+                    className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 resize-none font-light"
                     placeholder="Tell us about your project..."
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={sending}
-                  className="gradient-btn w-full py-3.5 rounded-lg font-semibold flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="gradient-btn w-full py-3.5 rounded-md text-sm font-medium flex items-center justify-center gap-2 disabled:opacity-60 tracking-wide"
                 >
                   {sending ? "Sending..." : "Send Message"}
-                  <Send size={16} />
+                  <Send size={14} strokeWidth={1.5} />
                 </button>
               </form>
             </AnimatedSection>
 
             {/* Contact Info */}
-            <AnimatedSection delay={0.15} className="lg:col-span-2 flex flex-col gap-6">
+            <AnimatedSection delay={0.1} className="lg:col-span-2 flex flex-col gap-5">
               {[
                 { icon: Mail, label: "Email", value: "hello@apexstudio.com" },
                 { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
@@ -109,13 +109,13 @@ const ContactPage = () => {
               ].map((item) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.label} className="glass-card rounded-xl p-6 flex gap-4 items-start">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <Icon size={18} className="text-primary" />
+                  <div key={item.label} className="glass-card rounded-lg p-6 flex gap-4 items-start">
+                    <div className="w-9 h-9 rounded-md bg-primary/8 flex items-center justify-center shrink-0">
+                      <Icon size={16} className="text-primary" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-foreground">{item.label}</p>
-                      <p className="text-muted-foreground text-sm mt-1 whitespace-pre-line">{item.value}</p>
+                      <p className="text-sm font-medium text-foreground tracking-tight">{item.label}</p>
+                      <p className="text-muted-foreground text-sm mt-1 whitespace-pre-line font-light">{item.value}</p>
                     </div>
                   </div>
                 );
