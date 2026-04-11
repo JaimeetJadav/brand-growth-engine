@@ -23,28 +23,28 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section className="section-padding bg-secondary/30">
+  <section className="section-padding">
     <div className="container mx-auto">
-      <AnimatedSection className="text-center mb-16">
-        <span className="text-primary text-sm font-medium uppercase tracking-wider">Testimonials</span>
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mt-3">
+      <AnimatedSection className="text-center mb-20">
+        <p className="text-primary text-xs font-medium uppercase tracking-[0.2em]">Testimonials</p>
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mt-4 tracking-tightest">
           What Our Clients <span className="gradient-text">Say</span>
         </h2>
       </AnimatedSection>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {testimonials.map((t, i) => (
-          <AnimatedSection key={t.name} delay={i * 0.1}>
-            <div className="glass-card rounded-xl p-6 md:p-8 h-full flex flex-col">
-              <div className="flex gap-1 mb-4">
+          <AnimatedSection key={t.name} delay={i * 0.08}>
+            <div className="glass-card rounded-lg p-7 md:p-9 h-full flex flex-col">
+              <div className="flex gap-1 mb-5">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} size={16} className="text-accent fill-accent" />
+                  <Star key={j} size={14} className="text-accent fill-accent" />
                 ))}
               </div>
-              <p className="text-foreground/90 text-sm leading-relaxed flex-1">"{t.text}"</p>
-              <div className="mt-6 pt-4 border-t border-border/50">
-                <p className="font-heading font-semibold text-foreground text-sm">{t.name}</p>
-                <p className="text-muted-foreground text-xs mt-0.5">{t.role}</p>
+              <p className="text-foreground/80 text-sm leading-relaxed flex-1 font-light">"{t.text}"</p>
+              <div className="mt-7 pt-5 border-t border-border/30">
+                <p className="font-heading font-medium text-foreground text-sm tracking-tight">{t.name}</p>
+                <p className="text-muted-foreground text-xs mt-1">{t.role}</p>
               </div>
             </div>
           </AnimatedSection>

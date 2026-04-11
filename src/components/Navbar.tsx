@@ -24,25 +24,25 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-lg border-b border-border/50" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border/30" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
-        <Link to="/" className="font-heading text-xl md:text-2xl font-bold tracking-tight">
-          <span className="gradient-text">Apex</span>
+        <Link to="/" className="font-heading text-lg md:text-xl font-semibold tracking-tight">
+          <span className="text-primary">Apex</span>
           <span className="text-foreground">Studio</span>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium transition-colors duration-200 ${
+              className={`text-[13px] font-medium tracking-wide transition-colors duration-300 ${
                 location.pathname === link.path
-                  ? "text-primary"
+                  ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -51,7 +51,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/contact"
-            className="gradient-btn px-5 py-2.5 rounded-lg text-sm"
+            className="gradient-btn px-5 py-2.5 rounded-md text-[13px] tracking-wide"
           >
             Get Started
           </Link>
@@ -62,7 +62,7 @@ const Navbar = () => {
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -73,16 +73,17 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border overflow-hidden"
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/30 overflow-hidden"
           >
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+            <div className="container mx-auto px-4 py-8 flex flex-col gap-5">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-lg font-medium py-2 ${
+                  className={`text-base font-medium py-1 ${
                     location.pathname === link.path
-                      ? "text-primary"
+                      ? "text-foreground"
                       : "text-muted-foreground"
                   }`}
                 >
@@ -91,7 +92,7 @@ const Navbar = () => {
               ))}
               <Link
                 to="/contact"
-                className="gradient-btn px-5 py-3 rounded-lg text-sm text-center mt-2"
+                className="gradient-btn px-5 py-3 rounded-md text-sm text-center mt-2 tracking-wide"
               >
                 Get Started
               </Link>

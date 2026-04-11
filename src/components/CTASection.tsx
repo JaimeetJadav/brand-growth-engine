@@ -6,21 +6,20 @@ const CTASection = () => (
   <section className="section-padding">
     <div className="container mx-auto">
       <AnimatedSection>
-        <div className="relative rounded-2xl overflow-hidden p-10 md:p-16 text-center" style={{ background: "var(--gradient-primary)" }}>
-          <div className="absolute inset-0 grid-bg opacity-10" />
+        <div className="relative rounded-lg overflow-hidden p-12 md:p-20 text-center bg-secondary">
           <div className="relative z-10">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tightest">
               Ready to Grow Your Brand?
             </h2>
-            <p className="text-primary-foreground/80 max-w-lg mx-auto mt-4 text-lg">
+            <p className="text-muted-foreground max-w-md mx-auto mt-5 text-base font-light leading-relaxed">
               Let's craft a strategy that puts your brand ahead of the competition.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 mt-8 px-8 py-4 rounded-lg bg-background text-foreground font-semibold hover:bg-foreground hover:text-background transition-colors group"
+              className="inline-flex items-center gap-2 mt-10 gradient-btn px-8 py-4 rounded-md text-sm font-medium group tracking-wide"
             >
               Contact Us
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-500" />
             </Link>
           </div>
         </div>
