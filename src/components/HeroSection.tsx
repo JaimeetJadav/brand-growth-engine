@@ -56,7 +56,7 @@ const HeroSection = () => (
         </a>
       </motion.div>
 
-      {/* Stats */}
+      {/* Stats — temporarily hidden
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -74,6 +74,7 @@ const HeroSection = () => (
           </div>
         ))}
       </motion.div>
+      */}
     </div>
   </section>
 );

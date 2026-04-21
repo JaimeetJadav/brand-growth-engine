@@ -9,17 +9,24 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="font-heading text-lg font-semibold tracking-tight">
-              <span className="text-primary">Apex</span>
-              <span className="text-foreground">Studio</span>
+              <span className="text-primary">Adiator</span>
+              <span className="text-foreground"> Media</span>
             </Link>
             <p className="text-muted-foreground text-sm mt-5 leading-relaxed font-light">
               We craft bold brands and high-performance digital campaigns that drive real results.
             </p>
             <div className="flex gap-3 mt-7">
-              {[Instagram, Twitter, Linkedin, Facebook].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/adiatormedia" },
+                { Icon: Twitter, href: "#" },
+                { Icon: Linkedin, href: "#" },
+                { Icon: Facebook, href: "#" },
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="w-8 h-8 rounded-md bg-secondary/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/8 transition-all duration-500"
                 >
                   <Icon size={14} strokeWidth={1.5} />
@@ -59,16 +66,17 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-medium text-xs uppercase tracking-[0.2em] text-foreground mb-5">Contact</h4>
             <div className="flex flex-col gap-3.5 text-sm text-muted-foreground font-light">
-              <span>hello@apexstudio.com</span>
-              <span>+1 (555) 123-4567</span>
-              <span>123 Creative Ave, Suite 100<br />New York, NY 10001</span>
+              <span>adiatormedia@gmail.com</span>
+              <span>+91 94094 21234</span>
+              <span>+91 96879 53803</span>
+              <span>Ahmedabad, Gujarat</span>
             </div>
           </div>
         </div>
 
         <div className="border-t border-border/20 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-xs font-light">
-            © {new Date().getFullYear()} ApexStudio. All rights reserved.
+            © {new Date().getFullYear()} Adiator Media. All rights reserved.
           </p>
           <div className="flex gap-8 text-xs text-muted-foreground font-light">
             <a href="#" className="hover:text-foreground transition-colors duration-300">Privacy Policy</a>

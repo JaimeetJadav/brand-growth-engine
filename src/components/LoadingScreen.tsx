@@ -166,7 +166,7 @@ const LoadingScreen = () => {
                 className="text-[10px] tracking-[0.35em] uppercase font-light"
                 style={{ color: "hsl(200, 15%, 48%)" }}
               >
-                ApexStudio
+                Adiator Media
               </motion.p>
             </div>
           </div>

@@ -13,7 +13,7 @@ const AboutPage = () => (
         <AnimatedSection>
           <p className="text-primary text-xs font-medium uppercase tracking-[0.2em]">About Us</p>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-4 tracking-tightest">
-            The Story Behind <span className="gradient-text">ApexStudio</span>
+            The Story Behind <span className="gradient-text">Adiator Media</span>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto mt-6 text-lg leading-relaxed font-light">
             We're a team of strategists, designers, and marketers obsessed with building brands that make an impact.
@@ -29,7 +29,7 @@ const AboutPage = () => (
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-7 tracking-tight">Our Story</h2>
           <div className="space-y-5 text-muted-foreground leading-relaxed font-light">
             <p>
-              Founded with a simple belief — that great brands are built at the intersection of bold creativity and sharp strategy. ApexStudio started as a small design studio and evolved into a full-service creative and digital marketing agency.
+              Founded with a simple belief — that great brands are built at the intersection of bold creativity and sharp strategy. Adiator Media started as a small design studio and evolved into a full-service creative and digital marketing agency.
             </p>
             <p>
               Today, we partner with ambitious brands across industries to craft identities, launch campaigns, and create content that drives measurable growth. Every project we take on is treated as our own.

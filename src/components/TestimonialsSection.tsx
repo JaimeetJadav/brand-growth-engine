@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Sarah Mitchell",
     role: "CEO, LuxeBrand Co.",
-    text: "ApexStudio completely transformed our brand identity. Their creative vision and strategic thinking led to a 3x increase in our conversion rates.",
+    text: "Adiator Media completely transformed our brand identity. Their creative vision and strategic thinking led to a 3x increase in our conversion rates.",
     rating: 5,
   },
   {
