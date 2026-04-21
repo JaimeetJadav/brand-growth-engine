@@ -12,7 +12,7 @@ const WhyUsSection = () => (
   <section className="section-padding">
     <div className="container mx-auto">
       <AnimatedSection className="text-center mb-20">
-        <p className="text-primary text-xs font-medium uppercase tracking-[0.2em]">Why Apex</p>
+        <p className="text-primary text-xs font-medium uppercase tracking-[0.2em]">Why Adiator</p>
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mt-4 tracking-tightest">
           Why Brands <span className="gradient-text">Choose Us</span>
         </h2>

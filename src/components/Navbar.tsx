@@ -30,8 +30,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <Link to="/" className="font-heading text-lg md:text-xl font-semibold tracking-tight">
-          <span className="text-primary">Apex</span>
-          <span className="text-foreground">Studio</span>
+          <span className="text-primary">Adiator</span>
+          <span className="text-foreground"> Media</span>
         </Link>
 
         {/* Desktop */}

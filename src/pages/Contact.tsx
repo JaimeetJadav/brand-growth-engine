@@ -103,9 +103,9 @@ const ContactPage = () => {
             {/* Contact Info */}
             <AnimatedSection delay={0.1} className="lg:col-span-2 flex flex-col gap-5">
               {[
-                { icon: Mail, label: "Email", value: "hello@apexstudio.com" },
-                { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-                { icon: MapPin, label: "Office", value: "123 Creative Ave, Suite 100\nNew York, NY 10001" },
+                { icon: Mail, label: "Email", value: "adiatormedia@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+91 94094 21234\n+91 96879 53803" },
+                { icon: MapPin, label: "Office", value: "Ahmedabad, Gujarat" },
               ].map((item) => {
                 const Icon = item.icon;
                 return (
