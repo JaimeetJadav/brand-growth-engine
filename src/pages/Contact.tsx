@@ -13,11 +13,15 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
+    const subject = `New enquiry from ${form.name}`;
+    const body = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`;
+    const mailto = `mailto:adiatormedia@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
     setTimeout(() => {
       setSending(false);
-      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+      toast({ title: "Opening your email app…", description: "Your message is ready to send to adiatormedia@gmail.com." });
       setForm({ name: "", email: "", phone: "", message: "" });
-    }, 1000);
+    }, 600);
   };
 
   return (
