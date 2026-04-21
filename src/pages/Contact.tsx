@@ -13,15 +13,39 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    const subject = `New enquiry from ${form.name}`;
-    const body = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\nMessage:\n${form.message}`;
-    const mailto = `mailto:adiatormedia@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setTimeout(() => {
-      setSending(false);
-      toast({ title: "Opening your email app…", description: "Your message is ready to send to adiatormedia@gmail.com." });
-      setForm({ name: "", email: "", phone: "", message: "" });
-    }, 600);
+
+    const templateParams = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+    };
+
+    // @ts-ignore
+    window.emailjs
+      .send(
+        "service_iokt7ii",     // ✅ your service id
+        "template_pn95l3g",   // ✅ your template id
+        templateParams
+      )
+      .then(() => {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you soon.",
+        });
+
+        setForm({ name: "", email: "", phone: "", message: "" });
+      })
+      .catch((error: any) => {
+        console.error(error);
+        toast({
+          title: "Error",
+          description: "Failed to send. Try again.",
+        });
+      })
+      .finally(() => {
+        setSending(false);
+      });
   };
 
   return (
@@ -31,7 +55,9 @@ const ContactPage = () => {
       <section className="pt-36 section-padding">
         <div className="container mx-auto">
           <AnimatedSection className="text-center mb-20">
-            <p className="text-primary text-xs font-medium uppercase tracking-[0.2em]">Get In Touch</p>
+            <p className="text-primary text-xs font-medium uppercase tracking-[0.2em]">
+              Get In Touch
+            </p>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mt-4 tracking-tightest">
               Let's Start a <span className="gradient-text">Conversation</span>
             </h1>
@@ -41,66 +67,77 @@ const ContactPage = () => {
           </AnimatedSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
+            
             {/* Form */}
             <AnimatedSection className="lg:col-span-3">
               <form onSubmit={handleSubmit} className="glass-card rounded-lg p-7 md:p-9 space-y-6">
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Name</label>
+                    <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">
+                      Name
+                    </label>
                     <input
                       type="text"
                       required
-                      maxLength={100}
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 font-light"
+                      className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40"
                       placeholder="Your name"
                     />
                   </div>
+
                   <div>
-                    <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Email</label>
+                    <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">
+                      Email
+                    </label>
                     <input
                       type="email"
                       required
-                      maxLength={255}
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 font-light"
+                      className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Phone</label>
+                  <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">
+                    Phone
+                  </label>
                   <input
                     type="tel"
-                    maxLength={20}
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 font-light"
-                    placeholder="+1 (555) 000-0000"
+                    className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40"
+                    placeholder="+91 00000 00000"
                   />
                 </div>
+
                 <div>
-                  <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">Message</label>
+                  <label className="text-xs font-medium text-foreground mb-2 block tracking-wide">
+                    Message
+                  </label>
                   <textarea
                     required
-                    maxLength={1000}
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 transition-all duration-500 resize-none font-light"
+                    className="w-full px-4 py-3 rounded-md bg-secondary/60 border border-border/40 text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-primary/40 resize-none"
                     placeholder="Tell us about your project..."
                   />
                 </div>
+
                 <button
                   type="submit"
                   disabled={sending}
-                  className="gradient-btn w-full py-3.5 rounded-md text-sm font-medium flex items-center justify-center gap-2 disabled:opacity-60 tracking-wide"
+                  className="gradient-btn w-full py-3.5 rounded-md text-sm font-medium flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {sending ? "Sending..." : "Send Message"}
                   <Send size={14} strokeWidth={1.5} />
                 </button>
+
               </form>
             </AnimatedSection>
 
@@ -118,13 +155,18 @@ const ContactPage = () => {
                       <Icon size={16} className="text-primary" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-foreground tracking-tight">{item.label}</p>
-                      <p className="text-muted-foreground text-sm mt-1 whitespace-pre-line font-light">{item.value}</p>
+                      <p className="text-sm font-medium text-foreground">
+                        {item.label}
+                      </p>
+                      <p className="text-muted-foreground text-sm mt-1 whitespace-pre-line">
+                        {item.value}
+                      </p>
                     </div>
                   </div>
                 );
               })}
             </AnimatedSection>
+
           </div>
         </div>
       </section>
